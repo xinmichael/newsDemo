@@ -3,7 +3,7 @@
   background: #34a0e2;
   color: white;
   padding-top: 60rpx;
-  padding-bottom: 30rpx;
+  padding-bottom: 20rpx;
 }
 
 .appLogo{
