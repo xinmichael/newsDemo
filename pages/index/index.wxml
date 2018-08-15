@@ -1,6 +1,6 @@
 <view class="appHead">
   <image class="appLogo" src="/image/newsLogo.png" mode="scaleToFill"></image>
-  <view class="appName">快读·咨询</view>
+  <view class="appName">快读·资讯</view>
 </view>
 <view class="newsHead">
   <view wx:for="{{newsType}}" data-news-class='{{item}}' class="{{(checkedNewsClassName == item && newsClassIschecked)?'newsClass-ischecked':'newsClass-normal'}}" bindtap='onTapNewsClass'>

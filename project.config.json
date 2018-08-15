@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.2.2",
 	"appid": "wx651f10399a4a84e8",
-	"projectname": "newsDemo",
+	"projectname": "newsDemo%20in%20Git",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

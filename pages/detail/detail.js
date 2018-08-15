@@ -26,6 +26,12 @@ Page({
     this.getNewsDetail();
   },
 
+  onTapBackToIndex() {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+
   getNewsDetail(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
@@ -70,7 +76,6 @@ Page({
         });
       }
     }
-
     this.setData({
       newsContentDetail: newsContentDetail
     });

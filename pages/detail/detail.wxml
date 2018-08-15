@@ -1,3 +1,7 @@
+<view class="detailHead">
+  <image class="backIcon" src="/image/backIcon.png" mode="scaleToFill" bindtap='onTapBackToIndex'></image>
+  <view class="detailHeadText">快读·资讯</view>
+</view>
 <view class="topLine"></view>
 <view class="newsTitle">{{title}}</view>
 <view class="newsBaseInfo">
