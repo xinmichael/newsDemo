@@ -1,0 +1,35 @@
+<view class="appHead">
+  <image class="appLogo" src="/image/newsLogo.png" mode="scaleToFill"></image>
+  <view class="appName">快读·咨询</view>
+</view>
+<view class="newsHead">
+  <view wx:for="{{newsType}}" data-news-class='{{item}}' class="{{(checkedNewsClassName == item && newsClassIschecked)?'newsClass-ischecked':'newsClass-normal'}}" bindtap='onTapNewsClass'>
+    <view class="newsClassName">{{item}}</view>
+    <view wx:if="{{checkedNewsClassName != item}}" class="checkedLine-hide"></view>
+    <view wx:if="{{checkedNewsClassName == item}}" class="checkedLine-show"></view>
+  </view>
+</view>
+
+<view class="hotNews-wrapper" data-news-id='{{hotNewsId}}' bindtap='onTapNews'>
+  <view class="hotNews-title">{{hotNewsTitle}}</view>
+  <view class="hotNews-info">
+    <view class="hotNews-source">{{hotNewsSource}}</view>
+    <view class="hotNews-date">{{hotNewsDate}}</view>
+  </view>
+  <image class="hotNews-firstImage" src="{{hotNewsFirstImage}}" mode="scaleToFill"></image>
+</view>
+
+<scroll-view>
+  <view class="otherNewsList">
+    <view wx:for="{{otherNewsInfo}}" class="otherNews" data-news-id='{{item.id}}' bindtap='onTapNews'>
+      <view class="otherNews-baseInfo">
+        <view class="otherNews-title">{{item.title}}</view>
+        <view class="otherNews-baseInfo-from">
+          <view class="otherNews-source">{{item.source}}</view>
+          <view class="otherNews-date">{{item.date}}</view>
+        </view>
+      </view>
+      <image class="otherNews-firstImage" src="{{item.imagePath}}" mode="scaleToFill"></image>
+    </view>
+  </view>
+</scroll-view>

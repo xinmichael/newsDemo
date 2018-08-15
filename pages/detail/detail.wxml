@@ -1,0 +1,12 @@
+<view class="topLine"></view>
+<view class="newsTitle">{{title}}</view>
+<view class="newsBaseInfo">
+  <view class="newsBaseInfo-source">{{source}}</view>
+  <view class="newsBaseInfo-date">{{date}}</view>
+  <view class="newsBaseInfo-readCount">阅读 {{readCount}}</view>
+</view>
+<view class="newsContent" wx:for="{{newsContentDetail}}">
+  <view wx:if="{{item.type == 'p'}}" class="newsContent-p">{{item.text}}</view>
+  <view wx:if="{{item.type == 'strong'}}" class="newsContent-strong">{{item.text}}</view>
+  <image wx:if="{{item.type == 'image'}}" class="newsContent-image" src="{{item.src}}" mode="scaleToFill"></image>
+</view>
