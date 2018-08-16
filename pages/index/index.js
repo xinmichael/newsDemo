@@ -58,13 +58,19 @@ Page({
         type: newsClassNameToCode[newsType]
       },
       success: res => {
-        console.log(res);
         let newsInfo = res.data.result;
         this.setHotNews(newsInfo);
         this.setOtherNews(newsInfo);
       },
       complete: () => {
         callback && callback()
+      },
+      fail: err => {
+        wx.showToast({
+          title: '无法获取数据',
+          icon: 'loading',
+          duration: 3000
+        })
       }
     })
   },
@@ -73,11 +79,12 @@ Page({
     let hotNewsInfo = newsInfo[0];
     let date = hotNewsInfo.date;
     let source = hotNewsInfo.source ? hotNewsInfo.source : "央视网";
+    let firstImagePath = hotNewsInfo.firstImage ? hotNewsInfo.firstImage : "/image/defaultFirstImage.png";
     this.setData({
       hotNewsTitle: hotNewsInfo.title,
       hotNewsSource: source,
       hotNewsDate: date.substring(11, 16),
-      hotNewsFirstImage: hotNewsInfo.firstImage,
+      hotNewsFirstImage: firstImagePath,
       hotNewsId: hotNewsInfo.id
     });
   },
@@ -86,11 +93,12 @@ Page({
     let otherNewsInfo = [];
     for (let i = 1; i < newsInfo.length; i++) {
       let source = newsInfo[i].source ? newsInfo[i].source : "央视网";
+      let firstImagePath = newsInfo[i].firstImage ? newsInfo[i].firstImage : "/image/defaultFirstImage.png";
       otherNewsInfo.push({
         title: newsInfo[i].title,
         source: source,
         date: newsInfo[i].date.substring(11, 16),
-        imagePath: newsInfo[i].firstImage,
+        imagePath: firstImagePath,
         id: newsInfo[i].id
       });
       this.setData({

@@ -57,7 +57,6 @@ Page({
       date: newsDetail.date.substring(11, 16),
       readCount: newsDetail.readCount
     });
-    console.log(newsDetail);
   },
 
   setNewsDetailContent(newsDetail){
